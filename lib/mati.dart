@@ -18,7 +18,7 @@ List<String> createAufgabe(Random rng, [String? operator]) {
   var secondInt = rng.nextInt(upperBound + 1);
   var operator = operators[rng.nextInt(2)];
   if (operator == "minus") {
-    if (isLargerThanLowerBound(firstInt - secondInt, lowerBound)) {
+    if (isToSmall(firstInt - secondInt, lowerBound)) {
       return createAufgabe(rng);
     }
     return ['$firstInt - $secondInt', '_____'];
@@ -26,9 +26,9 @@ List<String> createAufgabe(Random rng, [String? operator]) {
   return ['$firstInt + $secondInt', '_____'];
 }
 
-bool isLargerThanLowerBound(int numberToCheck, int lowerBound) {
+bool isToSmall(int numberToCheck, int lowerBound) {
   if (numberToCheck < lowerBound) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
