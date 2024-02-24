@@ -10,17 +10,24 @@ List<List<String>> create10Aufgaben() {
 }
 
 List<String> createAufgabe(Random rng) {
-  var lowerCut = 0;
-  var upperCut = 15;
+  var lowerBound = 0;
+  var upperBound = 15;
   var operators = ["minus", "plus"];
-  var firstInt = rng.nextInt(upperCut);
-  var secondInt = rng.nextInt(upperCut);
+  var firstInt = rng.nextInt(upperBound + 1);
+  var secondInt = rng.nextInt(upperBound + 1);
   var operator = operators[rng.nextInt(2)];
   if (operator == "minus") {
-    if (firstInt - secondInt < lowerCut) {
+    if (isLargerThanLowerBound(firstInt - secondInt, lowerBound)) {
       return createAufgabe(rng);
     }
     return ['$firstInt - $secondInt', '_____'];
   }
   return ['$firstInt + $secondInt', '_____'];
+}
+
+bool isLargerThanLowerBound(int numberToCheck, int lowerBound) {
+  if (numberToCheck < lowerBound) {
+    return false;
+  }
+  return true;
 }
