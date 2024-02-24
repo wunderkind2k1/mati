@@ -9,7 +9,8 @@ List<List<String>> create10Aufgaben() {
   return aufgaben;
 }
 
-List<String> createAufgabe(Random rng) {
+// the optional opertor i when createAufgabe is getting recursed and we already have an operator (minus)
+List<String> createAufgabe(Random rng, [String? operator]) {
   var lowerBound = 0;
   var upperBound = 15;
   var operators = ["minus", "plus"];
