@@ -2,13 +2,13 @@ import 'package:mati/mati.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('isLargerThanLowerBound is working', () {
-    expect(isLargerThanLowerBound(-1, 0), false);
-    expect(isLargerThanLowerBound(0, 1), false);
-    expect(isLargerThanLowerBound(1, 2), false);
-    expect(isLargerThanLowerBound(1, 1), true);
-    expect(isLargerThanLowerBound(1, 0), true);
-    expect(isLargerThanLowerBound(2, 1), true);
-    expect(isLargerThanLowerBound(0, -1), true);
+  test('isToSmall is working', () {
+    expect(isToSmall(-1, 0), true);
+    expect(isToSmall(0, 1), true);
+    expect(isToSmall(1, 2), true);
+    expect(isToSmall(1, 1), false);
+    expect(isToSmall(1, 0), false);
+    expect(isToSmall(2, 1), false);
+    expect(isToSmall(0, -1), false);
   });
 }
